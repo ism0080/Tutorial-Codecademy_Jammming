@@ -72,6 +72,7 @@ class App extends React.Component {
 
   savePlaylist() {
     const trackUris = this.state.playlistTracks.map(track => {track.uri});
+    return trackUris;
   }
 
   search(searchTerm) {

@@ -1,42 +1,35 @@
 import React from 'react';
 import './Track.css';
 
-class Track extends React.Component {
-    constructor(props) {
-        super(props);
+export const Track = ({isRemoval, track, onAdd, onRemove}) => {
+    const {name, artist, album} = track
 
-        this.addTrack = this.addTrack.bind(this);
-        this.removeTrack = this.removeTrack.bind(this);
-    }
-    renderAction() {
-        if (this.props.isRemoval) {
+    const renderAction = () => {
+        if (isRemoval) {
             return <button className="Track-action" 
-                            onClick={this.removeTrack}>-</button>
+                            onClick={removeTrack}>-</button>
         } else {
             return <button className="Track-action" 
-                            onClick={this.addTrack}>+</button>
+                            onClick={addTrack}>+</button>
         }
     }
 
-    addTrack() {
-        this.props.onAdd(this.props.track);
+    const addTrack = () => {
+        onAdd(track);
     }
 
-    removeTrack() {
-        this.props.onRemove(this.props.track);
+    const removeTrack = () => {
+        onRemove(track);
     }
 
-    render() {
-        return (
-            <div className="Track">
-                <div className="Track-information">
-                    <h4>{this.props.track.name}</h4>
-                    <p>{this.props.track.artist} | {this.props.track.album}</p>
-                </div>
-                {this.renderAction()}
+    return (
+        <div className="Track">
+            <div className="Track-information">
+                <h4>{name}</h4>
+                <p>{artist} | {album}</p>
             </div>
-        )
-    }
-}
+            {renderAction()}
+        </div>
+    )
 
-export default Track;
+}

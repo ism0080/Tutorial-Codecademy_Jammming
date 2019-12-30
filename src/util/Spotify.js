@@ -116,3 +116,14 @@ const Spotify = {
 };
 
 export default Spotify;
+
+/*
+    Things to Add:
+    - Your Current Top artists
+    - View songs in playlists
+    - Edit songs in playlists
+    - Song player
+    - Show users Name
+    - Material UI
+    - Webpack
+*/

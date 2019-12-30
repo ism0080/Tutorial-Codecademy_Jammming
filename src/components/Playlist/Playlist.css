@@ -1,4 +1,4 @@
-.Playlist {
+.Playlist, .UserPlayList {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,3 +50,7 @@
       width: 90%;
     }
   }
+
+.UserPlayList img {
+  width: 100%;
+}

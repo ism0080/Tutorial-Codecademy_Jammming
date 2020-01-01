@@ -7,7 +7,8 @@
     "@material-ui/icons": "^4.5.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.2"
+    "react-scripts": "3.1.2",
+    "typescript": "^3.7.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,6 +32,20 @@
     ]
   },
   "devDependencies": {
-    "typeface-roboto": "^0.0.75"
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "prettier": "^1.19.1",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.1.0",
+    "typeface-roboto": "^0.0.75",
+    "typescript-tslint-plugin": "^0.5.5"
   }
 }

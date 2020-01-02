@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 
 import Spotify from '../../util/Spotify'
+import SpotifyNew from '../../util/SpotifyNew'
 import { Playlist, UserPlayList } from '../Playlist'
 import { SearchBar } from '../SearchBar'
 import { SearchResults } from '../SearchResults'
 import './App.css'
 
 const App = () => {
-  const [searchResults, setSearchResults] = useState<[]>([])
+  const [searchResults, setSearchResults] = useState([])
   const [playlistName, setPlaylistName] = useState<string>('(New Playlist)')
   const [playlistTracks, setPlaylistTracks] = useState<TrackProps[]>([])
   const [userPlaylists, setUserPlaylists] = useState<[]>([])
@@ -55,12 +56,17 @@ const App = () => {
     })
   })
 
+  const testClick = () => {
+    return SpotifyNew.search('Love')
+  }
+
   return (
     <div>
       <h1>
         &#9835; DJ <span className='highlight'>Mackdaddy Playlist</span> Creator &#9835;
       </h1>
       <div className='App'>
+        <button onClick={testClick}></button>
         <SearchBar onSearch={search} />
         <div className='App-playlist'>
           <SearchResults searchResults={searchResults} onAdd={addTrack} />

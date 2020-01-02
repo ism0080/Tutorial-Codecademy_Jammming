@@ -23,8 +23,8 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
   const classes = useStyles()
   const [term, setTerm] = useState<string>('')
 
-  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
-    setTerm(event.currentTarget.value)
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTerm(event.target.value)
   }
 
   const handleClick = () => {

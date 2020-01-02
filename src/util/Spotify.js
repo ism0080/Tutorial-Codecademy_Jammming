@@ -22,14 +22,15 @@ const Spotify = {
       const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`
       window.location = accessUrl
     }
+    return
   },
 
   search(term) {
-    const accessToken = Spotify.getAccessToken()
+    const searchAccessToken = Spotify.getAccessToken()
 
     return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${searchAccessToken}`,
       },
     })
       .then((response) => {
@@ -60,21 +61,21 @@ const Spotify = {
 
     // Get User ID and add playlist to their playlist
     return fetch('https://api.spotify.com/v1/me', {
-      headers: headers,
+      headers,
     })
       .then((response) => response.json())
       .then((jsonResponse) => {
         userId = jsonResponse.id
         return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
-          headers: headers,
+          body: JSON.stringify({ name }),
+          headers,
           method: 'POST',
-          body: JSON.stringify({ name: name }),
         })
           .then((response) => response.json())
           .then((jsonResponse) => {
             const playlistId = jsonResponse.id
             return fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
-              headers: headers,
+              headers,
               method: 'POST',
               body: JSON.stringify({ uris: trackUris }),
             })
@@ -88,13 +89,13 @@ const Spotify = {
     let userId
 
     return fetch('https://api.spotify.com/v1/me', {
-      headers: headers,
+      headers,
     })
       .then((response) => response.json())
       .then((jsonResponse) => {
         userId = jsonResponse.id
         return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
-          headers: headers,
+          headers,
           method: 'GET',
         })
           .then((response) => {
@@ -124,6 +125,5 @@ export default Spotify
     - Edit songs in playlists
     - Song player
     - Show users Name
-    - Material UI
     - Webpack
 */

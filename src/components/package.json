@@ -1,7 +1,0 @@
-{
-  "private": true,
-  "name": "@jammming/components",
-  "license": "MIT",
-  "version": "1.0.0",
-  "main": "index.ts"
-}

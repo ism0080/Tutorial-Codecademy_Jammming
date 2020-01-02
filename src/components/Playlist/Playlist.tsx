@@ -4,8 +4,8 @@ import { TrackList } from '../TrackList'
 import './Playlist.css'
 
 export const Playlist = ({ onNameChange, playlistName, playlistTracks, onRemove, onSave }: PlaylistProps) => {
-  const handleNameChange = (event: React.FormEvent<HTMLInputElement>) => {
-    onNameChange(event.currentTarget.value)
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onNameChange(event.target.value)
   }
 
   return (

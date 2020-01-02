@@ -32,6 +32,8 @@
     ]
   },
   "devDependencies": {
+    "@types/spotify-api": "^0.0.1",
+    "@types/spotify-web-api-node": "^4.0.1",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-config-standard": "^14.1.0",
@@ -42,6 +44,7 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-standard": "^4.0.1",
     "prettier": "^1.19.1",
+    "spotify-web-api-node": "^4.0.0",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.1.0",

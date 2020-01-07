@@ -6,6 +6,7 @@ import { Playlist, UserPlayList } from '../Playlist'
 import { SearchBar } from '../SearchBar'
 import { SearchResults } from '../SearchResults'
 import './App.css'
+import { Bar } from './Bar'
 
 const App = () => {
   const [searchResults, setSearchResults] = useState([])
@@ -62,9 +63,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>
-        &#9835; DJ <span className='highlight'>Mackdaddy Playlist</span> Creator &#9835;
-      </h1>
+      <Bar />
       <div className='App'>
         <button onClick={testClick}></button>
         <SearchBar onSearch={search} />

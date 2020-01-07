@@ -1,8 +1,8 @@
 import React from 'react'
 import './Track.css'
 
-export const Track = ({ isRemoval, track, onAdd, onRemove }: TrackProps) => {
-  const { name, artist, album } = track
+export const Track = ({ isRemoval, track, onAdd, onRemove, isSmall }: TrackProps) => {
+  const { name, artist, album, image } = track
 
   const renderAction = () => {
     if (isRemoval) {
@@ -34,19 +34,24 @@ export const Track = ({ isRemoval, track, onAdd, onRemove }: TrackProps) => {
 
   return (
     <div className='Track'>
-      <div className='Track-information'>
-        <h4>{name}</h4>
-        <p>
-          {artist} | {album}
-        </p>
+      <div className='Track-information' style={{ height: isSmall ? '4em' : '6em' }}>
+        <div>
+          <img src={image} alt='album art' />
+        </div>
+        <div style={{ width: '100%', paddingLeft: 10, minWidth: 100 }}>
+          <h4>{name}</h4>
+          <p>{artist}</p>
+          <p>{album}</p>
+        </div>
+        {renderAction()}
       </div>
-      {renderAction()}
     </div>
   )
 }
 
 interface TrackProps {
   isRemoval: boolean
+  isSmall?: boolean
   track: import('../App').TrackProps
   onAdd?: (track: import('../App').TrackProps) => void
   onRemove?: (track: import('../App').TrackProps) => void

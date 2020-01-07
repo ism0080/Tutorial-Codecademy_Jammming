@@ -1,38 +1,62 @@
 .Track {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgba(256, 256, 256, 0.8);
-  }
-  
-  .Track-action {
-    cursor: pointer;
-    padding: .5rem;
-    font-size: 1.05rem;
-    transition: color .25s;
-    border: 0px;
-    background-color: rgba(0, 0, 0, 0);
-    color: #fff;
-  }
-  
-  .Track-action:hover {
-    color: rgba(265, 265, 265, .5);
-  }
-  
-  .Track-information {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 6em;
-  }
-  
-  .Track-information h4 {
-    padding-top: .22rem;
-    margin-bottom: .22rem;
-  }
-  
-  .Track-information p {
-    font-size: .83rem;
-    font-weight: 300;
-    color: rgba(256, 256, 256, 0.8);
-  }
+  display: flex;
+  align-items: center;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 2px 2px 8px rgba(160, 160, 160, 0.7);
+  margin: 8px;
+  border-radius: 15px;
+}
+
+.Track-action {
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.05rem;
+  transition: color 0.25s;
+  border: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #000;
+  user-select: none;
+}
+
+.Track-action:focus {
+  outline: none;
+}
+
+.Track-action:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.Track-information {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #000;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.Track-information h4 {
+  margin: 0px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 15px;
+}
+
+.Track-information p {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0px;
+}
+
+.Track-information img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}

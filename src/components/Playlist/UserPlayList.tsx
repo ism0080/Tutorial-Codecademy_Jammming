@@ -1,10 +1,10 @@
 import React from 'react'
 
-import './Playlist.css'
+import './UserPlayList.css'
 
 export const UserPlayList = ({ playlists }: UserPlayListProps) => (
   <div className='UserPlayList'>
-    <h1>Your Playlists</h1>
+    <h2>Your Playlists</h2>
     {playlists.map((playlist) => {
       return (
         <div key={playlist.id} className='UserPlayList-item'>

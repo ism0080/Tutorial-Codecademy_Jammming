@@ -1,0 +1,13 @@
+.userData {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userData img {
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  object-fit: cover;
+  border-radius: 100%;
+}

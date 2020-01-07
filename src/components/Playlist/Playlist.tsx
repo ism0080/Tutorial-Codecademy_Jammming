@@ -11,7 +11,7 @@ export const Playlist = ({ onNameChange, playlistName, playlistTracks, onRemove,
   return (
     <div className='Playlist'>
       <input defaultValue={playlistName} onChange={handleNameChange} />
-      <TrackList tracks={playlistTracks} onRemove={onRemove} isRemoval={true} />
+      <TrackList tracks={playlistTracks} onRemove={onRemove} isRemoval={true} isSmall={true} />
       <button className='Playlist-save' onClick={onSave}>
         SAVE TO SPOTIFY
       </button>

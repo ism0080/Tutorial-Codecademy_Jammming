@@ -1,6 +1,7 @@
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd'
 import React from 'react'
 
-import { TrackList } from '../TrackList'
+import { TrackList } from 'components/TrackList'
 import './Playlist.css'
 
 export const Playlist = ({ onNameChange, playlistName, playlistTracks, onRemove, onSave }: PlaylistProps) => {
@@ -13,6 +14,7 @@ export const Playlist = ({ onNameChange, playlistName, playlistTracks, onRemove,
       <input defaultValue={playlistName} onChange={handleNameChange} />
       <TrackList tracks={playlistTracks} onRemove={onRemove} isRemoval={true} isSmall={true} />
       <button className='Playlist-save' onClick={onSave}>
+        <PlaylistAddIcon />
         SAVE TO SPOTIFY
       </button>
     </div>
@@ -22,7 +24,7 @@ export const Playlist = ({ onNameChange, playlistName, playlistTracks, onRemove,
 interface PlaylistProps {
   onNameChange: (event: string) => void
   playlistName: string
-  playlistTracks: Array<import('../App').TrackProps>
-  onRemove: (track: import('../App').TrackProps) => void
+  playlistTracks: Array<import('components/App').TrackProps>
+  onRemove: (track: import('components/App').TrackProps) => void
   onSave: () => void
 }

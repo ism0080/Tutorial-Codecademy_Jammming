@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export const Bar = () => {
+export const Bar = ({ drawerClick }: BarProps) => {
   const [userData, setUserData] = useState({ avatar: '', name: '' })
 
   const classes = useStyles()
@@ -37,7 +37,7 @@ export const Bar = () => {
       <AppBar position='static'>
         <Toolbar>
           <IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='open drawer'>
-            <MenuIcon />
+            <MenuIcon onClickCapture={drawerClick} />
           </IconButton>
           <Typography variant='h6' noWrap>
             Jammming
@@ -54,4 +54,8 @@ export const Bar = () => {
       </AppBar>
     </div>
   )
+}
+
+interface BarProps {
+  drawerClick: () => void
 }

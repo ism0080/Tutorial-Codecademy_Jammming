@@ -21,5 +21,5 @@ export const UserPlayList = ({ playlists }: UserPlayListProps) => (
 )
 
 interface UserPlayListProps {
-  playlists: Array<import('../App').TrackProps>
+  playlists: Array<import('../../App').TrackProps>
 }

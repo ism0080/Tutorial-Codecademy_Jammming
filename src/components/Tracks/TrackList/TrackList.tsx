@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Track } from '../Track'
+import { Track } from 'components/Tracks'
 import './TrackList.css'
 
 export const TrackList = ({ onAdd, onRemove, isRemoval, tracks, isSmall }: TrackListProps) => (
@@ -14,9 +14,9 @@ export const TrackList = ({ onAdd, onRemove, isRemoval, tracks, isSmall }: Track
 )
 
 interface TrackListProps {
-  onAdd?: (track: import('../App').TrackProps) => void
-  onRemove?: (track: import('../App').TrackProps) => void
+  onAdd?: (track: import('components/App').TrackProps) => void
+  onRemove?: (track: import('components/App').TrackProps) => void
   isRemoval: boolean
-  tracks: Array<import('../App').TrackProps>
+  tracks: Array<import('components/App').TrackProps>
   isSmall?: boolean
 }

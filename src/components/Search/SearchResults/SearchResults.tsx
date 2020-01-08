@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { TrackList } from '../TrackList'
+import { TrackList } from 'components/TrackList'
 import './SearchResults.css'
 
 export const SearchResults = ({ searchResults, onAdd }: SearchResultsProps) => (
@@ -11,6 +11,6 @@ export const SearchResults = ({ searchResults, onAdd }: SearchResultsProps) => (
 )
 
 interface SearchResultsProps {
-  searchResults: Array<import('../App').TrackProps>
-  onAdd: (track: import('../App').TrackProps) => void
+  searchResults: Array<import('components/App').TrackProps>
+  onAdd: (track: import('components/App').TrackProps) => void
 }

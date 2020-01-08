@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react'
 
-import Spotify from '../../util/Spotify'
-import SpotifyNew from '../../util/SpotifyNew'
-import { Playlist, UserPlayList } from '../Playlist'
-import { SearchBar } from '../SearchBar'
-import { SearchResults } from '../SearchResults'
+import { Bar } from 'components/Bar'
+import { SideDrawer } from 'components/Drawer'
+import { Playlist, UserPlayList } from 'components/Playlist'
+import { SearchBar, SearchResults } from 'components/Search'
+import Spotify from 'util/Spotify'
+import SpotifyNew from 'util/SpotifyNew'
+
 import './App.css'
-import { Bar } from './Bar'
 
 const App = () => {
   const [searchResults, setSearchResults] = useState([])
   const [playlistName, setPlaylistName] = useState<string>('(New Playlist)')
   const [playlistTracks, setPlaylistTracks] = useState<TrackProps[]>([])
   const [userPlaylists, setUserPlaylists] = useState<[]>([])
+  const [sideDrawer, setSideDrawer] = useState<boolean>(false)
 
   const addTrack = (track: TrackProps) => {
     const tracks: TrackProps[] = [...playlistTracks]
@@ -61,9 +63,13 @@ const App = () => {
     return SpotifyNew.search('Love')
   }
 
+  const sideDrawerHandler = () => {
+    setSideDrawer(!sideDrawer)
+  }
+
   return (
     <div>
-      <Bar />
+      <Bar drawerClick={sideDrawerHandler} />
       <div className='App'>
         <button onClick={testClick}></button>
         <SearchBar onSearch={search} />
@@ -77,6 +83,7 @@ const App = () => {
             onSave={savePlaylist}
           />
           <UserPlayList playlists={userPlaylists} />
+          {sideDrawer ? <SideDrawer drawerClick={sideDrawerHandler} /> : null}
         </div>
       </div>
     </div>

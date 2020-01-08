@@ -1,2 +1,2 @@
 export * from './Playlist'
-export * from './UserPlayList'
+export * from './UserPlaylist'

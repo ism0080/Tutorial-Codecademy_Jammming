@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { TrackList } from 'components/TrackList'
+import { TrackList } from 'components/Tracks'
 import './SearchResults.css'
 
 export const SearchResults = ({ searchResults, onAdd }: SearchResultsProps) => (

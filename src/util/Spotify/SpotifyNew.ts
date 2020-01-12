@@ -11,7 +11,7 @@ const redirectUri = 'http://localhost:3000/'
 const clientId = 'b14de9fe7da744dba3bd803d7e62881f'
 const state = 'some-state-of-my-choice'
 
-const SpotifyNew = {
+export const SpotifyNew = {
   getAccessToken() {
     spotifyApi = new SpotifyWebApi({
       clientId,
@@ -58,7 +58,7 @@ const SpotifyNew = {
     const searchAccessToken: string = SpotifyNew.getAccessToken() || ''
     spotifyApi.setAccessToken(searchAccessToken)
     spotifyApi.searchTracks(term).then(
-      function(data) {
+      function (data) {
         return data.body.tracks?.items.map((track) => ({
           album: track.album.name,
           artist: track.artists[0].name,
@@ -67,11 +67,9 @@ const SpotifyNew = {
           uri: track.uri,
         }))
       },
-      function(err) {
+      function (err) {
         console.error(err)
       },
     )
   },
 }
-
-export default SpotifyNew

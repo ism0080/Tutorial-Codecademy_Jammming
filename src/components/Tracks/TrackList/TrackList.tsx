@@ -14,9 +14,9 @@ export const TrackList = ({ onAdd, onRemove, isRemoval, tracks, isSmall }: Track
 )
 
 interface TrackListProps {
-  onAdd?: (track: import('components/App').TrackProps) => void
-  onRemove?: (track: import('components/App').TrackProps) => void
+  onAdd?: (track: import('scenes/Home').TrackProps) => void
+  onRemove?: (track: import('scenes/Home').TrackProps) => void
   isRemoval: boolean
-  tracks: Array<import('components/App').TrackProps>
+  tracks: Array<import('scenes/Home').TrackProps>
   isSmall?: boolean
 }

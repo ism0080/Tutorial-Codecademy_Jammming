@@ -52,7 +52,7 @@ export const Track = ({ isRemoval, track, onAdd, onRemove, isSmall }: TrackProps
 interface TrackProps {
   isRemoval: boolean
   isSmall?: boolean
-  track: import('components/App').TrackProps
-  onAdd?: (track: import('components/App').TrackProps) => void
-  onRemove?: (track: import('components/App').TrackProps) => void
+  track: import('scenes/Home').TrackProps
+  onAdd?: (track: import('scenes/Home').TrackProps) => void
+  onRemove?: (track: import('scenes/Home').TrackProps) => void
 }

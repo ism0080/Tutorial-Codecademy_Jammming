@@ -11,6 +11,6 @@ export const SearchResults = ({ searchResults, onAdd }: SearchResultsProps) => (
 )
 
 interface SearchResultsProps {
-  searchResults: Array<import('components/App').TrackProps>
-  onAdd: (track: import('components/App').TrackProps) => void
+  searchResults: Array<import('scenes/Home').TrackProps>
+  onAdd: (track: import('scenes/Home').TrackProps) => void
 }

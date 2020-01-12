@@ -24,7 +24,7 @@ export const Playlist = ({ onNameChange, playlistName, playlistTracks, onRemove,
 interface PlaylistProps {
   onNameChange: (event: string) => void
   playlistName: string
-  playlistTracks: Array<import('components/App').TrackProps>
-  onRemove: (track: import('components/App').TrackProps) => void
+  playlistTracks: Array<import('scenes/Home').TrackProps>
+  onRemove: (track: import('scenes/Home').TrackProps) => void
   onSave: () => void
 }

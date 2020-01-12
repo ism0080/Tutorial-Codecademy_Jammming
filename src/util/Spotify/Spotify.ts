@@ -2,7 +2,7 @@ let accessToken: string
 const redirectUri = 'http://localhost:3000/'
 const clientId = 'b14de9fe7da744dba3bd803d7e62881f'
 
-const Spotify = {
+export const Spotify = {
   getAccessToken() {
     if (accessToken) {
       return accessToken
@@ -126,8 +126,6 @@ const Spotify = {
     }
   },
 }
-
-export default Spotify
 
 /*
     TODO: Things to Add:

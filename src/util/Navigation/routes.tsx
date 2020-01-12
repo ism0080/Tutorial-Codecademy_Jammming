@@ -1,10 +1,11 @@
 import { RouteComponentProps, Router } from '@reach/router'
-import { UserPlayList } from 'components'
 import React from 'react'
+
+import { UserPlayListScene } from 'scenes'
 import { HomeScene } from 'scenes'
 
 const Home = (props: RouteComponentProps) => <HomeScene />
-const PlaylistScene = (props: RouteComponentProps) => <UserPlayList playlists={[]} />
+const PlaylistScene = (props: RouteComponentProps) => <UserPlayListScene />
 
 export const Routes = () => (
   <Router>

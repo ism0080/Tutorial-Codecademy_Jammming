@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 
-import { Bar } from 'components/Bar'
-import { SideDrawer } from 'components/Drawer'
-import { Playlist } from 'components/Playlist'
-import { SearchBar, SearchResults } from 'components/Search'
-import { Spotify } from 'util'
+import { Bar, Playlist, SearchBar, SearchResults, SideDrawer } from 'components'
+import Spotify from 'util/Spotify/Spotify'
 // ToDO: import SpotifyNew from 'util/Spotify'
 
 // import './Home.css'
@@ -69,7 +66,7 @@ export const HomeScene = () => {
   }
 
   return (
-    <div>
+    <>
       <Bar drawerClick={sideDrawerHandler} />
       <div className='App'>
         {/* <button onClick={testClick}></button> */}
@@ -86,7 +83,7 @@ export const HomeScene = () => {
           {sideDrawer ? <SideDrawer drawerClick={sideDrawerHandler} /> : null}
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

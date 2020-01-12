@@ -1,3 +1,4 @@
+import { RouteComponentProps } from '@reach/router'
 import React, { useState } from 'react'
 
 import { Bar, Playlist, SearchBar, SearchResults, SideDrawer } from 'components'
@@ -6,7 +7,7 @@ import Spotify from 'util/Spotify/Spotify'
 
 // import './Home.css'
 
-export const HomeScene = () => {
+export const HomeScene = ({ uri }: RouteComponentProps) => {
   const [searchResults, setSearchResults] = useState([])
   const [playlistName, setPlaylistName] = useState<string>('(New Playlist)')
   const [playlistTracks, setPlaylistTracks] = useState<TrackProps[]>([])
@@ -38,24 +39,17 @@ export const HomeScene = () => {
     if (!trackUris.length) {
       return window.alert('Add tracks to the playlist')
     }
-    Spotify.savePlaylist(playlistName, trackUris)?.then(() => {
+    Spotify.savePlaylist(playlistName, trackUris, uri)?.then(() => {
       setPlaylistTracks([])
       setPlaylistName('(New Playlist)')
     })
   }
 
   const search = (searchTerm: string) => {
-    Spotify.search(searchTerm).then((results: any) => {
+    Spotify.search(searchTerm, uri).then((results: any) => {
       setSearchResults(results)
     })
   }
-
-  // useEffect(() => {
-  //   // Spotify.getUserPlaylists().then((playlists: any) => {
-  //   //   setUserPlaylists(playlists)
-  //   // })
-  //   setUserPlaylists([])
-  // }, [])
 
   // const testClick = () => {
   //   return SpotifyNew.search('Love')

@@ -58,7 +58,7 @@ export const SpotifyNew = {
     const searchAccessToken: string = SpotifyNew.getAccessToken() || ''
     spotifyApi.setAccessToken(searchAccessToken)
     spotifyApi.searchTracks(term).then(
-      function (data) {
+      (data) => {
         return data.body.tracks?.items.map((track) => ({
           album: track.album.name,
           artist: track.artists[0].name,
@@ -67,7 +67,7 @@ export const SpotifyNew = {
           uri: track.uri,
         }))
       },
-      function (err) {
+      (err) => {
         console.error(err)
       },
     )

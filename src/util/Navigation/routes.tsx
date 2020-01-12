@@ -4,12 +4,14 @@ import React from 'react'
 import { UserPlayListScene } from 'scenes'
 import { HomeScene } from 'scenes'
 
-const Home = (props: RouteComponentProps) => <HomeScene />
-const PlaylistScene = (props: RouteComponentProps) => <UserPlayListScene />
+export const Routes = (token: any) => {
+  const Home = (props: RouteComponentProps) => <HomeScene uri={token} />
+  const PlaylistScene = (props: RouteComponentProps) => <UserPlayListScene uri={token} />
 
-export const Routes = () => (
-  <Router>
-    <Home path='/' default />
-    <PlaylistScene path='/myPlaylist' />
-  </Router>
-)
+  return (
+    <Router>
+      <Home path='/' default uri={token} />
+      <PlaylistScene path='/myPlaylist' uri={token} />
+    </Router>
+  )
+}

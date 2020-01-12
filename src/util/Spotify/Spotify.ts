@@ -1,33 +1,6 @@
-let accessToken: string
-const redirectUri = 'http://localhost:3000/'
-const clientId = 'b14de9fe7da744dba3bd803d7e62881f'
-
 const Spotify = {
-  getAccessToken() {
-    if (accessToken) {
-      return accessToken
-    }
-    // Check for access token match
-    const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/) // The page URL (window.location.href)
-    const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/)
-
-    if (accessTokenMatch && expiresInMatch) {
-      accessToken = accessTokenMatch[1]
-      const expiresIn = Number(expiresInMatch[1])
-      // Clears the parameters from the URL to grab a new access token
-      window.setTimeout(() => (accessToken = ''), expiresIn * 1000)
-      window.history.pushState('Access Token', '', '/')
-      return accessToken
-    } else {
-      const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`
-      window.location = (accessUrl as unknown) as Location
-    }
-    return
-  },
-
-  async search(term: string) {
-    const searchAccessToken = Spotify.getAccessToken()
-    const headers = { Authorization: `Bearer ${searchAccessToken}` }
+  async search(term: string, token: any) {
+    const headers = { Authorization: `Bearer ${token.token}` }
     // Search for Song
     const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
       headers,
@@ -47,13 +20,12 @@ const Spotify = {
     }))
   },
 
-  async savePlaylist(name: string, trackUris: Array<string | undefined>) {
+  async savePlaylist(name: string, trackUris: Array<string | undefined>, token: any) {
     if (!name || !trackUris.length) {
       return
     }
 
-    const saveAccessToken = Spotify.getAccessToken()
-    const headers = { Authorization: `Bearer ${saveAccessToken}` }
+    const headers = { Authorization: `Bearer ${token.token}` }
     let userId: string
 
     // Get UserID
@@ -81,9 +53,8 @@ const Spotify = {
     return response2
   },
 
-  async getUserPlaylists() {
-    const userAccessToken = Spotify.getAccessToken()
-    const headers = { Authorization: `Bearer ${userAccessToken}` }
+  async getUserPlaylists(token: any) {
+    const headers = { Authorization: `Bearer ${token.token}` }
     let userId
 
     // Get User Id
@@ -110,9 +81,8 @@ const Spotify = {
     }))
   },
 
-  async getUserInformation() {
-    const userInfoAccessToken = Spotify.getAccessToken()
-    const headers = { Authorization: `Bearer ${userInfoAccessToken}` }
+  async getUserInformation(token: any) {
+    const headers = { Authorization: `Bearer ${token.token}` }
 
     // Get user Info
     const response = await fetch('https://api.spotify.com/v1/me', {

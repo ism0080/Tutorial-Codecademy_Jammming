@@ -9,12 +9,12 @@ import SpotifyNew from 'util/Spotify/SpotifyNew'
 export const HomeScene = () => {
   const [searchResults, setSearchResults] = useState([])
   const [playlistName, setPlaylistName] = useState<string>('(New Playlist)')
-  const [playlistTracks, setPlaylistTracks] = useState<TrackProps[]>([])
+  const [playlistTracks, setPlaylistTracks] = useState<TrackSearch[]>([])
   // const [setUserPlaylists] = useState<[]>([])
   const [sideDrawer, setSideDrawer] = useState<boolean>(false)
 
-  const addTrack = (track: TrackProps) => {
-    const tracks: TrackProps[] = [...playlistTracks]
+  const addTrack = (track: TrackSearch) => {
+    const tracks: TrackSearch[] = [...playlistTracks]
     if (tracks.find((savedTrack) => savedTrack.id === track.id)) {
       return
     }
@@ -22,7 +22,7 @@ export const HomeScene = () => {
     setPlaylistTracks(tracks)
   }
 
-  const removeTrack = (track: TrackProps) => {
+  const removeTrack = (track: TrackSearch) => {
     let tracks = [...playlistTracks]
     tracks = tracks.filter((currentTrack) => currentTrack.id !== track.id)
     setPlaylistTracks(tracks)
@@ -78,14 +78,4 @@ export const HomeScene = () => {
       </div>
     </>
   )
-}
-
-export interface TrackProps {
-  album?: string
-  artist?: string
-  id: string
-  image?: string
-  name: string
-  tracks: string
-  uri?: string
 }

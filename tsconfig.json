@@ -24,8 +24,6 @@
         "configFile": "./tslint.json"
       }
     ],
-    "typeRoots": ["node_modules/@types/"],
-    "types": ["spotify-web-api-node"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
@@ -34,7 +32,7 @@
   },
   "exclude": ["node_modules"],
   "compileOnSave": true,
-  "include": ["src"],
+  "include": ["src", "**/*", "./**/*.d.ts"],
   "paths": {
     "@components": ["src/components"],
     "@util": ["src/util"]

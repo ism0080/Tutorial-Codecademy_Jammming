@@ -11,12 +11,12 @@ const Spotify = {
     const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
       headers,
     })
-    const jsonResponse = await response.json()
+    const jsonResponse: SpotifyApi.SearchResponse = await response.json()
     if (!jsonResponse.tracks) {
       return []
     }
     // Return song JSON
-    return jsonResponse.tracks.items.map((track: any) => ({
+    return jsonResponse.tracks.items.map((track) => ({
       album: track.album.name,
       artist: track.artists[0].name,
       id: track.id,
@@ -38,7 +38,7 @@ const Spotify = {
     const response = await fetch('https://api.spotify.com/v1/me', {
       headers,
     })
-    const jsonResponse = await response.json()
+    const jsonResponse: SpotifyApi.CurrentUsersProfileResponse = await response.json()
     userId = jsonResponse.id
 
     // Get User PLaylists
@@ -67,19 +67,19 @@ const Spotify = {
     const response = await fetch('https://api.spotify.com/v1/me', {
       headers,
     })
-    const jsonResponse = await response.json()
+    const jsonResponse: SpotifyApi.CurrentUsersProfileResponse = await response.json()
     userId = jsonResponse.id
     // Get User Playlists
     const response1 = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
       headers,
       method: 'GET',
     })
-    const jsonResponse1 = await response1.json()
+    const jsonResponse1: SpotifyApi.ListOfUsersPlaylistsResponse = await response1.json()
     if (!jsonResponse1.items) {
       return []
     }
     // Return User Playlists
-    return jsonResponse1.items.map((item: any) => ({
+    return jsonResponse1.items.map((item) => ({
       id: item.id,
       image: item.images[0].url,
       name: item.name,
@@ -94,10 +94,10 @@ const Spotify = {
     const response = await fetch('https://api.spotify.com/v1/me', {
       headers,
     })
-    const jsonResponse = await response.json()
+    const jsonResponse: SpotifyApi.CurrentUsersProfileResponse = await response.json()
     // Return user info
     return {
-      avatar: jsonResponse.images[0].url,
+      avatar: jsonResponse.images && jsonResponse.images[0].url,
       name: jsonResponse.display_name,
     }
   },
@@ -111,6 +111,5 @@ export default Spotify
     - View songs in playlists
     - Edit songs in playlists
     - Song player
-    - Show users Name
     - Webpack
 */

@@ -75,7 +75,7 @@ export const SpotifyNew = {
   },
 
   createPlaylist(name: string, type: boolean) {
-    spotifyApi.createPlaylist('isaacmackle', name, { public: type }).then(
+    spotifyApi.createPlaylist(userId, name, { public: type }).then(
       (data) => {
         console.log('Created playlist!')
       },

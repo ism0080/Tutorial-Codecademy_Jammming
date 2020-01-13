@@ -1,4 +1,3 @@
-export * from './App'
 export * from './Playlist'
 export * from './Search'
 export * from './Tracks'

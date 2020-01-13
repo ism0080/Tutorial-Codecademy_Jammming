@@ -61,7 +61,7 @@ export const HomeScene = ({ uri }: RouteComponentProps) => {
 
   return (
     <>
-      <Bar drawerClick={sideDrawerHandler} />
+      <Bar drawerClick={sideDrawerHandler} token={uri} />
       <div className='App'>
         {/* <button onClick={testClick}></button> */}
         <SearchBar onSearch={search} />

@@ -21,7 +21,7 @@ export const UserPlayListScene = ({ uri }: RouteComponentProps) => {
 
   return (
     <>
-      <Bar drawerClick={sideDrawerHandler} />
+      <Bar drawerClick={sideDrawerHandler} token={uri} />
       <UserPlayList playlists={userPlaylists} />
       {sideDrawer ? <SideDrawer drawerClick={sideDrawerHandler} /> : null}
     </>

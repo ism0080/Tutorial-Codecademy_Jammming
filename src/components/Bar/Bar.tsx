@@ -3,11 +3,10 @@ import IconButton from '@material-ui/core/IconButton'
 import { makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import AccountCircle from '@material-ui/icons/AccountCircle'
 import MenuIcon from '@material-ui/icons/Menu'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-// import { Spotify } from 'util'
+import Spotify from 'util/Spotify/Spotify'
 import './Bar.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -19,19 +18,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export const Bar = ({ drawerClick }: BarProps) => {
-  // const [userData] = useState({ avatar: '', name: '' })
+export const Bar = ({ drawerClick, token }: BarProps) => {
+  const [userData, setUserData] = useState()
 
   const classes = useStyles()
-  // useEffect(() => {
-  //   getUserData()
-  // }, [userData])
-  // const getUserData = () => {
-  //   // Spotify.getUserInformation().then((data: any) => {
-  //   //   setUserData(data)
-  //   // })
-  //   setUserData({ avatar: '', name: 'Isaac' })
-  // }
+  useEffect(() => {
+    getUserData()
+  }, [])
+  const getUserData = () => {
+    Spotify.getUserInformation(token).then((data: any) => {
+      setUserData(data)
+    })
+    setUserData({ avatar: '', name: 'Isaac' })
+  }
 
   return (
     <div className={classes.grow}>
@@ -51,11 +50,12 @@ export const Bar = ({ drawerClick }: BarProps) => {
           </Typography>
           <div className={classes.grow} />
           <div className='userData'>
-            <IconButton aria-label='show 4 new mails' color='inherit'>
-              <AccountCircle />
-            </IconButton>
-            {/* <img src={userData.avatar} alt='user avatar' />
-            <p>{userData.name}</p> */}
+            {!userData ? null : (
+              <>
+                <img src={userData.avatar} alt='user avatar' />
+                <p>{userData.name}</p>
+              </>
+            )}
           </div>
         </Toolbar>
       </AppBar>
@@ -65,4 +65,5 @@ export const Bar = ({ drawerClick }: BarProps) => {
 
 interface BarProps {
   drawerClick: () => void
+  token: any
 }

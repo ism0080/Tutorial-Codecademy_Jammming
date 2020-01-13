@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 import { Routes } from 'util/Navigation/routes'
+import Spotify from 'util/Spotify/Spotify'
+import SpotifyNew from 'util/Spotify/SpotifyNew'
 
 import './App.css'
 
@@ -30,6 +32,8 @@ const App = () => {
   if (aToken && !token) {
     setToken(aToken)
   }
+  Spotify.setAccessToken(token)
+  SpotifyNew.setAccessToken(token)
 
   return (
     <>
@@ -46,7 +50,7 @@ const App = () => {
           </a>
         </div>
       ) : (
-        <Routes token={token} />
+        <Routes />
       )}
     </>
   )

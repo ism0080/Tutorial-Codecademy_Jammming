@@ -5,13 +5,13 @@ import { UserPlayListScene } from 'scenes'
 import { HomeScene } from 'scenes'
 
 export const Routes = (token: any) => {
-  const Home = (props: RouteComponentProps) => <HomeScene uri={token} />
-  const PlaylistScene = (props: RouteComponentProps) => <UserPlayListScene uri={token} />
+  const Home = (props: RouteComponentProps) => <HomeScene />
+  const PlaylistScene = (props: RouteComponentProps) => <UserPlayListScene />
 
   return (
     <Router>
-      <Home path='/' default uri={token} />
-      <PlaylistScene path='/myPlaylist' uri={token} />
+      <Home path='/' default />
+      <PlaylistScene path='/myPlaylist' />
     </Router>
   )
 }

@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export const Bar = ({ drawerClick, token }: BarProps) => {
+export const Bar = ({ drawerClick }: BarProps) => {
   const [userData, setUserData] = useState()
 
   const classes = useStyles()
@@ -26,7 +26,7 @@ export const Bar = ({ drawerClick, token }: BarProps) => {
     getUserData()
   }, [])
   const getUserData = () => {
-    Spotify.getUserInformation(token).then((data: any) => {
+    Spotify.getUserInformation().then((data: any) => {
       setUserData(data)
     })
     setUserData({ avatar: '', name: 'Isaac' })
@@ -65,5 +65,4 @@ export const Bar = ({ drawerClick, token }: BarProps) => {
 
 interface BarProps {
   drawerClick: () => void
-  token: any
 }

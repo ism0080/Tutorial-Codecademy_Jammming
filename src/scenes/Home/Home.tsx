@@ -1,13 +1,12 @@
-import { RouteComponentProps } from '@reach/router'
 import React, { useState } from 'react'
 
 import { Bar, Playlist, SearchBar, SearchResults, SideDrawer } from 'components'
 import Spotify from 'util/Spotify/Spotify'
-// ToDO: import SpotifyNew from 'util/Spotify'
+import SpotifyNew from 'util/Spotify/SpotifyNew'
 
 // import './Home.css'
 
-export const HomeScene = ({ uri }: RouteComponentProps) => {
+export const HomeScene = () => {
   const [searchResults, setSearchResults] = useState([])
   const [playlistName, setPlaylistName] = useState<string>('(New Playlist)')
   const [playlistTracks, setPlaylistTracks] = useState<TrackProps[]>([])
@@ -39,21 +38,21 @@ export const HomeScene = ({ uri }: RouteComponentProps) => {
     if (!trackUris.length) {
       return window.alert('Add tracks to the playlist')
     }
-    Spotify.savePlaylist(playlistName, trackUris, uri)?.then(() => {
+    Spotify.savePlaylist(playlistName, trackUris)?.then(() => {
       setPlaylistTracks([])
       setPlaylistName('(New Playlist)')
     })
   }
 
   const search = (searchTerm: string) => {
-    Spotify.search(searchTerm, uri).then((results: any) => {
+    Spotify.search(searchTerm).then((results: any) => {
       setSearchResults(results)
     })
   }
 
-  // const testClick = () => {
-  //   return SpotifyNew.search('Love')
-  // }
+  const testClick = () => {
+    return SpotifyNew.getUsersPlaylists()
+  }
 
   const sideDrawerHandler = () => {
     setSideDrawer(!sideDrawer)
@@ -61,9 +60,9 @@ export const HomeScene = ({ uri }: RouteComponentProps) => {
 
   return (
     <>
-      <Bar drawerClick={sideDrawerHandler} token={uri} />
+      <Bar drawerClick={sideDrawerHandler} />
       <div className='App'>
-        {/* <button onClick={testClick}></button> */}
+        <button onClick={testClick}></button>
         <SearchBar onSearch={search} />
         <div className='App-playlist'>
           <SearchResults searchResults={searchResults} onAdd={addTrack} />

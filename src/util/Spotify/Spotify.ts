@@ -1,6 +1,12 @@
+let accessToken: string
+
 const Spotify = {
-  async search(term: string, token: any) {
-    const headers = { Authorization: `Bearer ${token.token}` }
+  setAccessToken(token: any) {
+    accessToken = token
+  },
+
+  async search(term: string) {
+    const headers = { Authorization: `Bearer ${accessToken}` }
     // Search for Song
     const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
       headers,
@@ -20,12 +26,12 @@ const Spotify = {
     }))
   },
 
-  async savePlaylist(name: string, trackUris: Array<string | undefined>, token: any) {
+  async savePlaylist(name: string, trackUris: Array<string | undefined>) {
     if (!name || !trackUris.length) {
       return
     }
 
-    const headers = { Authorization: `Bearer ${token.token}` }
+    const headers = { Authorization: `Bearer ${accessToken}` }
     let userId: string
 
     // Get UserID
@@ -53,8 +59,8 @@ const Spotify = {
     return response2
   },
 
-  async getUserPlaylists(token: any) {
-    const headers = { Authorization: `Bearer ${token.token}` }
+  async getUserPlaylists() {
+    const headers = { Authorization: `Bearer ${accessToken}` }
     let userId
 
     // Get User Id
@@ -81,8 +87,8 @@ const Spotify = {
     }))
   },
 
-  async getUserInformation(token: any) {
-    const headers = { Authorization: `Bearer ${token.token}` }
+  async getUserInformation() {
+    const headers = { Authorization: `Bearer ${accessToken}` }
 
     // Get user Info
     const response = await fetch('https://api.spotify.com/v1/me', {

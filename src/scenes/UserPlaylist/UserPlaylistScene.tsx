@@ -1,15 +1,14 @@
-import { RouteComponentProps } from '@reach/router'
 import React, { useEffect, useState } from 'react'
 
 import { Bar, SideDrawer, UserPlayList } from 'components'
 import Spotify from 'util/Spotify/Spotify'
 
-export const UserPlayListScene = ({ uri }: RouteComponentProps) => {
+export const UserPlayListScene = () => {
   const [sideDrawer, setSideDrawer] = useState<boolean>(false)
   const [userPlaylists, setUserPlaylists] = useState([])
 
   useEffect(() => {
-    Spotify.getUserPlaylists(uri).then((playlists: any) => {
+    Spotify.getUserPlaylists().then((playlists: any) => {
       setUserPlaylists(playlists)
     })
     setUserPlaylists([])
@@ -21,7 +20,7 @@ export const UserPlayListScene = ({ uri }: RouteComponentProps) => {
 
   return (
     <>
-      <Bar drawerClick={sideDrawerHandler} token={uri} />
+      <Bar drawerClick={sideDrawerHandler} />
       <UserPlayList playlists={userPlaylists} />
       {sideDrawer ? <SideDrawer drawerClick={sideDrawerHandler} /> : null}
     </>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { render } from 'react-dom'
 
+import { DefaultButton } from './components/Button'
 import { Routes } from './util/Navigation'
 import Spotify from './util/Spotify/Spotify'
 import SpotifyNew from './util/Spotify/SpotifyNew'
@@ -49,6 +50,7 @@ const App = () => {
           >
             Login to Spotify
           </a>
+          <DefaultButton testID='login-button' text='Login to Spotify' onPress={() => window.alert('heelo')} />
         </div>
       ) : (
         <Routes />

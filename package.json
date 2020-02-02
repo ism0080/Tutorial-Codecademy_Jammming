@@ -30,6 +30,7 @@
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
+    "@types/lodash": "^4.14.149",
     "@types/spotify-api": "^0.0.1",
     "@types/spotify-web-api-node": "^4.0.1",
     "awesome-typescript-loader": "^5.2.1",

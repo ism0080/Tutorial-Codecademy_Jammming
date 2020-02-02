@@ -17,8 +17,6 @@ const rootPath = (...args) => args.reduce((fullPath, pathComponent) => path.join
  * @note Some props are injected and some are configuration (rendering) settings
  */
 const htmlPlugin = new HtmlWebPackPlugin({
-  title: 'Jamming',
-  template: rootPath('assets', 'index.html'),
   filename: 'index.html',
   meta: {
     viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
@@ -31,13 +29,15 @@ const htmlPlugin = new HtmlWebPackPlugin({
     removeStyleLinkTypeAttributes: true,
     useShortDoctype: true,
   },
+  template: rootPath('assets', 'index.html'),
+  title: 'Jamming',
 })
 
 const hotModulePlugin = new webpack.HotModuleReplacementPlugin()
 
 const miniCssExtractPlugin = new MiniCssExtractPlugin({
-  filename: '[name].css',
   chunkFilename: '[id].css',
+  filename: '[name].css',
 })
 
 /**
@@ -45,17 +45,17 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
  */
 module.exports = {
   entry: ['webpack/hot/dev-server', rootPath('src', 'index.tsx')],
-  target: 'web',
   output: {
+    filename: '[name]-bundle.js',
     path: rootPath('dist'),
     publicPath: './',
-    filename: '[name]-bundle.js',
   },
+  target: 'web',
   module: {
     rules: [
       {
-        test: /\.ts(x?)$/,
         exclude: [/node_modules/],
+        test: /\.ts(x?)$/,
         use: 'awesome-typescript-loader',
       },
       {
@@ -67,12 +67,12 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
-              modules: true,
               localsConvention: 'camelCaseOnly',
+              modules: true,
               modules: {
                 localIdentName: '[name]-[local]-[hash:base64:8]',
               },
+              sourceMap: true,
             },
           },
           {
@@ -94,12 +94,13 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.less', '.css'],
   },
   devServer: {
-    publicPath: 'http://localhost:8000',
-    contentBase: rootPath('assets'),
-    open: false,
-    lazy: false,
     compress: true,
+    contentBase: rootPath('assets'),
     historyApiFallback: true,
+    hot: true,
+    lazy: false,
+    open: true,
     port: 3000,
+    publicPath: 'http://localhost:8000',
   },
 }

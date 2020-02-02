@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Track } from 'components/Tracks'
+import { Track } from '../../Tracks'
 import './TrackList.css'
 
 export const TrackList = ({ onAdd, onRemove, isRemoval, tracks, isSmall }: TrackListProps) => (

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import { render } from 'react-dom'
 
-import { Routes } from 'util/Navigation/routes'
-import Spotify from 'util/Spotify/Spotify'
-import SpotifyNew from 'util/Spotify/SpotifyNew'
+import { Routes } from './util/Navigation'
+import Spotify from './util/Spotify/Spotify'
+import SpotifyNew from './util/Spotify/SpotifyNew'
 
-import './App.css'
+import './index.css'
 
 const authEndpoint = 'https://accounts.spotify.com/authorize'
 const clientId = 'b14de9fe7da744dba3bd803d7e62881f'
@@ -56,4 +57,4 @@ const App = () => {
   )
 }
 
-export default App
+render(<App />, document.getElementById('root'))

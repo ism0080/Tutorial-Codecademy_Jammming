@@ -28,7 +28,8 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "typeRoots": ["node_modules/@types", "src/**/*.interface.ts"]
   },
   "exclude": ["node_modules"],
   "compileOnSave": true,
@@ -36,5 +37,8 @@
   "paths": {
     "@components": ["src/components"],
     "@util": ["src/util"]
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "reportFiles": ["./src/**/*"]
   }
 }

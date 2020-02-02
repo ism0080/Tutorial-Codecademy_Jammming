@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import { Bar, Playlist, SearchBar, SearchResults, SideDrawer } from 'components'
-import Spotify from 'util/Spotify/Spotify'
-import SpotifyNew from 'util/Spotify/SpotifyNew'
+import { Bar, Playlist, SearchBar, SearchResults, SideDrawer } from '../../components'
+import Spotify from '../../util/Spotify/Spotify'
+import SpotifyNew from '../../util/Spotify/SpotifyNew'
 
 // import './Home.css'
 

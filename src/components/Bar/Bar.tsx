@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
 import React, { useEffect, useState } from 'react'
 
-import Spotify from 'util/Spotify/Spotify'
+import Spotify from '../../util/Spotify/Spotify'
 import './Bar.css'
 
 const useStyles = makeStyles((theme) => ({

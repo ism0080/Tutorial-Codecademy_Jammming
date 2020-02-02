@@ -14,10 +14,12 @@
     "typescript": "^3.7.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "webpack-dev-server --mode development --progress",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean": "yarn clean:modules; yarn",
+    "clean:modules": "rm -rf node_modules"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,8 +37,20 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-export-namespace-from": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
     "@types/spotify-api": "^0.0.1",
     "@types/spotify-web-api-node": "^4.0.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-dynamic-import-node-babel-7": "^2.0.7",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-config-standard": "^14.1.0",
@@ -46,12 +60,26 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-standard": "^4.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.2.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "path": "^0.12.7",
     "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
     "spotify-web-api-node": "^4.0.0",
+    "style-loader": "^1.1.3",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.1.0",
     "typeface-roboto": "^0.0.75",
-    "typescript-tslint-plugin": "^0.5.5"
+    "typescript-tslint-plugin": "^0.5.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }

@@ -1,7 +1,7 @@
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd'
 import React from 'react'
 
-import { TrackList } from 'components/Tracks'
+import { TrackList } from '../../Tracks'
 import './Playlist.css'
 
 export const Playlist = ({ onNameChange, playlistName, playlistTracks, onRemove, onSave }: PlaylistProps) => {

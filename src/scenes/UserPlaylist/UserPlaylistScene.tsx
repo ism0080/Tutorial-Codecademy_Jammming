@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-import { Bar, SideDrawer, UserPlayList } from 'components'
-import Spotify from 'util/Spotify/Spotify'
+import { Bar, SideDrawer, UserPlayList } from '../../components'
+import Spotify from '../../util/Spotify/Spotify'
 
 export const UserPlayListScene = () => {
   const [sideDrawer, setSideDrawer] = useState<boolean>(false)

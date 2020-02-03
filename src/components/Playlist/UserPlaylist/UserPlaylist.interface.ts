@@ -1,0 +1,3 @@
+interface UserPlayListProps {
+  playlists: TrackSearch[]
+}

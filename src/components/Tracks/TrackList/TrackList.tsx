@@ -12,11 +12,3 @@ export const TrackList = ({ onAdd, onRemove, isRemoval, tracks, isSmall }: Track
     })}
   </div>
 )
-
-interface TrackListProps {
-  onAdd?: (track: TrackSearch) => void
-  onRemove?: (track: TrackSearch) => void
-  isRemoval: boolean
-  tracks: TrackSearch[]
-  isSmall?: boolean
-}

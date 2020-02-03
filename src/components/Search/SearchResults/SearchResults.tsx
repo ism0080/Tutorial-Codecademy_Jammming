@@ -9,8 +9,3 @@ export const SearchResults = ({ searchResults, onAdd }: SearchResultsProps) => (
     <TrackList tracks={searchResults} onAdd={onAdd} isRemoval={false} />
   </div>
 )
-
-interface SearchResultsProps {
-  searchResults: TrackSearch[]
-  onAdd: (track: TrackSearch) => void
-}

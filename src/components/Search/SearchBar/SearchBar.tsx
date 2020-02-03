@@ -63,7 +63,3 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
     </div>
   )
 }
-
-interface SearchBarProps {
-  onSearch: (term: string) => void
-}

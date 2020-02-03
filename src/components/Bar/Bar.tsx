@@ -62,7 +62,3 @@ export const Bar = ({ drawerClick }: BarProps) => {
     </div>
   )
 }
-
-interface BarProps {
-  drawerClick: () => void
-}

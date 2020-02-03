@@ -19,7 +19,3 @@ export const UserPlayList = ({ playlists }: UserPlayListProps) => (
     })}
   </div>
 )
-
-interface UserPlayListProps {
-  playlists: TrackSearch[]
-}

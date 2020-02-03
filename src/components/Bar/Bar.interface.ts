@@ -1,0 +1,3 @@
+interface BarProps {
+  drawerClick: () => void
+}

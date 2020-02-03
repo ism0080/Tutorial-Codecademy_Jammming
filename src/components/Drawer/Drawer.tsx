@@ -44,7 +44,3 @@ export const SideDrawer = ({ drawerClick }: SideDrawProps) => {
     </div>
   )
 }
-
-interface SideDrawProps {
-  drawerClick: () => void
-}

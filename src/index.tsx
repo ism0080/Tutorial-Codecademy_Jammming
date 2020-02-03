@@ -46,6 +46,7 @@ const App = () => {
           <DefaultButton
             testID='login-button'
             text='Login to Spotify'
+            containerStyle={{ marginTop: 10 }}
             onPress={() =>
               navigate(
                 `${authEndpoint}?client_id=${clientId}&response_type=token&${scopes.join(

@@ -1,6 +1,7 @@
 import { debounce as debounceHandler } from 'lodash'
 import React, { useMemo } from 'react'
 
+import { useJammmingTheme } from '../../hooks/theme/theme-hook'
 import './DefaultButton.css'
 import { getBackgroundColor, getTextColor } from './functions'
 
@@ -21,24 +22,28 @@ export const DefaultButton = ({
   disabledBackgroundColor,
   disabledTextColor,
 }: DefaultButtonProps) => {
+  const theme = useJammmingTheme()
   const onPressDebounced = useMemo(() => debounceHandler(onPress, debounce ? debounce : 0), [onPress])
 
   const styles = {
     container: {
-      backgroundColor: getBackgroundColor({
-        containerStyle,
-        disabled,
-        disabledBackgroundColor,
-        error,
-      } as DefaultButtonProps),
-      borderRadius: 8,
+      backgroundColor: getBackgroundColor(
+        {
+          containerStyle,
+          disabled,
+          disabledBackgroundColor,
+          error,
+        } as DefaultButtonProps,
+        theme,
+      ),
+      borderRadius: theme.borderRadius,
       cursor: disabled ? 'no-drop' : 'pointer',
       outline: disabled && !allowDisabledPress ? 'none' : undefined,
       ...containerStyle,
     },
     text: {
-      color: getTextColor({ textStyle, disabled, disabledTextColor, error } as DefaultButtonProps),
-      fontSize: 14,
+      color: getTextColor({ textStyle, disabled, disabledTextColor, error } as DefaultButtonProps, theme),
+      fontSize: theme.defaultFontSize,
       ...textStyle,
     },
   }

@@ -2,7 +2,6 @@ interface DefaultButtonProps extends CommonProps {
   onPress: () => void
   containerStyle?: import('react').CSSProperties
   textStyle?: import('react').CSSProperties
-  textFontWeight?: 'bold' | 'semibold' | 'light'
   disabled?: boolean
   disabledBackgroundColor?: string
   disabledTextColor?: string

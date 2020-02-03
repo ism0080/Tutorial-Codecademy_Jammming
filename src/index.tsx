@@ -1,3 +1,4 @@
+import { navigate } from '@reach/router'
 import React, { useState } from 'react'
 import { render } from 'react-dom'
 
@@ -42,15 +43,17 @@ const App = () => {
       {!token ? (
         <div className='AppLogin'>
           <img className='logoImg' src='https://miro.medium.com/max/2400/1*BKoo1Q5PBuN87XT4bArK3w.jpeg' alt='logo' />
-          <a
-            className='btn'
-            href={`${authEndpoint}?client_id=${clientId}&response_type=token&${scopes.join(
-              '%20',
-            )}&redirect_uri=${redirectUri}`}
-          >
-            Login to Spotify
-          </a>
-          <DefaultButton testID='login-button' text='Login to Spotify' onPress={() => window.alert('heelo')} />
+          <DefaultButton
+            testID='login-button'
+            text='Login to Spotify'
+            onPress={() =>
+              navigate(
+                `${authEndpoint}?client_id=${clientId}&response_type=token&${scopes.join(
+                  '%20',
+                )}&redirect_uri=${redirectUri}`,
+              )
+            }
+          />
         </div>
       ) : (
         <Routes />

@@ -12,20 +12,6 @@ body {
   margin: 30vh auto;
 }
 
-.btn {
-  background-color: pink;
-  padding: 10px;
-  border-radius: 15px;
-  text-decoration: none;
-  color: white;
-  margin: 10px;
-}
-
-.btn:visited {
-  text-decoration: none;
-  color: white;
-}
-
 .logoImg {
   width: 200px;
 }

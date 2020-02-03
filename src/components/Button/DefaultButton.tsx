@@ -1,7 +1,8 @@
-import { debounce as Debounce } from 'lodash'
+import { debounce as debounceHandler } from 'lodash'
 import React, { useMemo } from 'react'
 
 import './DefaultButton.css'
+import { getBackgroundColor, getTextColor } from './functions'
 
 export const DefaultButton = ({
   debounce,
@@ -17,20 +18,26 @@ export const DefaultButton = ({
   loading,
   containerStyle,
   textStyle,
-  textFontWeight,
+  disabledBackgroundColor,
+  disabledTextColor,
 }: DefaultButtonProps) => {
-  const onPressDebounced = useMemo(() => Debounce(onPress, debounce ? debounce : 0), [onPress])
+  const onPressDebounced = useMemo(() => debounceHandler(onPress, debounce ? debounce : 0), [onPress])
 
   const styles = {
     container: {
+      backgroundColor: getBackgroundColor({
+        containerStyle,
+        disabled,
+        disabledBackgroundColor,
+        error,
+      } as DefaultButtonProps),
       borderRadius: 8,
+      cursor: disabled ? 'no-drop' : 'pointer',
       outline: disabled && !allowDisabledPress ? 'none' : undefined,
       ...containerStyle,
-      backgroundColor: 'green',
-      cursor: disabled ? 'no-drop' : 'pointer',
     },
     text: {
-      color: 'white',
+      color: getTextColor({ textStyle, disabled, disabledTextColor, error } as DefaultButtonProps),
       fontSize: 14,
       ...textStyle,
     },

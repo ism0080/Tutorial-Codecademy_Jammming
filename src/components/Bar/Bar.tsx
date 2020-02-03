@@ -46,7 +46,7 @@ export const Bar = ({ drawerClick }: BarProps) => {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap>
-            Jammming
+            Paraxis
           </Typography>
           <div className={classes.grow} />
           <div className='userData'>

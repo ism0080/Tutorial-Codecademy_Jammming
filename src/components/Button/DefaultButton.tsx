@@ -1,7 +1,7 @@
 import { debounce as debounceHandler } from 'lodash'
 import React, { useMemo } from 'react'
 
-import { useJammmingTheme } from '../../hooks'
+import { useParaxisTheme } from '../../hooks'
 import { StaticSvgIcon } from '../../res/svg-icon-renderer'
 import './DefaultButton.css'
 import { getBackgroundColor, getTextColor } from './functions'
@@ -23,7 +23,7 @@ export const DefaultButton = ({
   disabledBackgroundColor,
   disabledTextColor,
 }: DefaultButtonProps) => {
-  const theme = useJammmingTheme()
+  const theme = useParaxisTheme()
   const onPressDebounced = useMemo(() => debounceHandler(onPress, debounce ? debounce : 0), [onPress])
 
   const styles = {

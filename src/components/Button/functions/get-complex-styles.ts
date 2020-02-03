@@ -1,8 +1,8 @@
-import { JammmingTheme } from '../../../hooks'
+import { ParaxisTheme } from '../../../hooks'
 
 export const getBackgroundColor = (
   { containerStyle, disabled, disabledBackgroundColor, error }: DefaultButtonProps,
-  theme: JammmingTheme,
+  theme: ParaxisTheme,
 ) => {
   let backgroundColor = theme.colors.defaultButton
   if (containerStyle && containerStyle.backgroundColor) {
@@ -20,7 +20,7 @@ export const getBackgroundColor = (
 
 export const getTextColor = (
   { textStyle, disabled, disabledTextColor, error }: DefaultButtonProps,
-  theme: JammmingTheme,
+  theme: ParaxisTheme,
 ) => {
   let color = theme.colors.defaultColor
   if (textStyle && textStyle.color) {

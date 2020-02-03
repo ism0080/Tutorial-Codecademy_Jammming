@@ -9,4 +9,4 @@ export const standardTheme = {
   defaultFontSize: 14,
 }
 
-export type JammmingTheme = typeof standardTheme
+export type ParaxisTheme = typeof standardTheme

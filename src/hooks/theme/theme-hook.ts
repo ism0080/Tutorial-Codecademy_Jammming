@@ -1,3 +1,3 @@
-import { JammmingTheme, standardTheme } from './theme-data/standard-theme'
+import { ParaxisTheme, standardTheme } from './theme-data/standard-theme'
 
-export const useJammmingTheme = (): JammmingTheme => standardTheme
+export const useParaxisTheme = (): ParaxisTheme => standardTheme

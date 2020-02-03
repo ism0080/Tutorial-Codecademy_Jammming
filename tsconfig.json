@@ -36,8 +36,8 @@
   "compileOnSave": true,
   "include": ["./src/**/*", "**/*", "./**/*.d.ts"],
   "paths": {
-    "@components": ["src/components"],
-    "@util": ["src/util"]
+    "components": ["./src/components"],
+    "util": ["./src/util"]
   },
   "awesomeTypescriptLoaderOptions": {
     "reportFiles": ["./src/**/*"]

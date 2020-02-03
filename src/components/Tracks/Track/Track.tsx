@@ -1,4 +1,5 @@
 import React from 'react'
+
 import './Track.css'
 
 export const Track = ({ isRemoval, track, onAdd, onRemove, isSmall }: TrackProps) => {

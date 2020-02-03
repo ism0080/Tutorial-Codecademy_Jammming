@@ -1,8 +1,9 @@
 import { debounce as debounceHandler } from 'lodash'
 import React, { useMemo } from 'react'
 
-import { useParaxisTheme } from '../../hooks'
-import { StaticSvgIcon } from '../../res/svg-icon-renderer'
+import { useParaxisTheme } from 'hooks'
+import { StaticSvgIcon } from 'res/svg-icon-renderer'
+
 import './DefaultButton.css'
 import { getBackgroundColor, getTextColor } from './functions'
 

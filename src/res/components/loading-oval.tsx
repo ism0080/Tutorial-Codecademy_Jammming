@@ -1,5 +1,5 @@
 import React from 'react'
-import { SvgIconProps } from '../interfaces/icon.interfaces'
+import { SvgIconProps } from 'res/interfaces'
 
 const defaultDimensions = {
   height: 18,

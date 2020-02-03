@@ -92,6 +92,13 @@ module.exports = {
   plugins: [miniCssExtractPlugin, htmlPlugin, hotModulePlugin],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.less', '.css'],
+    alias: {
+      components: path.resolve(__dirname, 'src/components/'),
+      util: path.resolve(__dirname, 'src/util/'),
+      hooks: path.resolve(__dirname, 'src/hooks/'),
+      scenes: path.resolve(__dirname, 'src/scenes/'),
+      res: path.resolve(__dirname, 'src/res/'),
+    },
   },
   devServer: {
     compress: true,

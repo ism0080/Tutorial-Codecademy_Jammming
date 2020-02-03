@@ -38,6 +38,12 @@ const App = () => {
   Spotify.setAccessToken(token)
   SpotifyNew.setAccessToken(token)
 
+  const onClickHandler = () => {
+    navigate(
+      `${authEndpoint}?client_id=${clientId}&response_type=token&${scopes.join('%20')}&redirect_uri=${redirectUri}`,
+    )
+  }
+
   return (
     <>
       {!token ? (
@@ -47,13 +53,7 @@ const App = () => {
             testID='login-button'
             text='Login to Spotify'
             containerStyle={{ marginTop: 10 }}
-            onPress={() =>
-              navigate(
-                `${authEndpoint}?client_id=${clientId}&response_type=token&${scopes.join(
-                  '%20',
-                )}&redirect_uri=${redirectUri}`,
-              )
-            }
+            onPress={onClickHandler}
           />
         </div>
       ) : (

@@ -1,7 +1,8 @@
 import { debounce as debounceHandler } from 'lodash'
 import React, { useMemo } from 'react'
 
-import { useJammmingTheme } from '../../hooks/theme/theme-hook'
+import { useJammmingTheme } from '../../hooks'
+import { StaticSvgIcon } from '../../res/svg-icon-renderer'
 import './DefaultButton.css'
 import { getBackgroundColor, getTextColor } from './functions'
 
@@ -61,7 +62,7 @@ export const DefaultButton = ({
     <button data-testid={testID} onClick={onButtonPress} className={'container'} style={styles.container}>
       {loading ? (
         <span data-testid={`${testID}.loading`}>
-          <p>Loading...</p>>
+          <StaticSvgIcon name='loadingOval' />
         </span>
       ) : (
         children || (

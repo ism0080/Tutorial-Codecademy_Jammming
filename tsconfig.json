@@ -34,7 +34,7 @@
   },
   "exclude": ["node_modules"],
   "compileOnSave": true,
-  "include": ["src", "**/*", "./**/*.d.ts"],
+  "include": ["./src/**/*", "**/*", "./**/*.d.ts"],
   "paths": {
     "@components": ["src/components"],
     "@util": ["src/util"]

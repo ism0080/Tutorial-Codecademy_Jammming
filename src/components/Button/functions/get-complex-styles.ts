@@ -1,4 +1,4 @@
-import { JammmingTheme } from '../../../hooks/theme/theme-data/standard-theme'
+import { JammmingTheme } from '../../../hooks'
 
 export const getBackgroundColor = (
   { containerStyle, disabled, disabledBackgroundColor, error }: DefaultButtonProps,

@@ -1,7 +1,6 @@
 .container {
   padding: 15px;
   border: 0;
-  cursor: pointer;
   line-height: 0;
   min-height: 40px;
 }
@@ -11,6 +10,5 @@
 }
 
 .text {
-  color: white;
   font-weight: 600;
 }

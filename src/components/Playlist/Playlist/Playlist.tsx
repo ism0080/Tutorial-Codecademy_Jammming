@@ -1,7 +1,7 @@
-import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd'
+// import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd'
 import React from 'react'
 
-import { TrackList } from 'components'
+import { DefaultButton, TrackList } from 'components'
 import './Playlist.css'
 
 export const Playlist = ({ onNameChange, playlistName, playlistTracks, onRemove, onSave }: PlaylistProps) => {
@@ -13,10 +13,14 @@ export const Playlist = ({ onNameChange, playlistName, playlistTracks, onRemove,
     <div className='Playlist'>
       <input defaultValue={playlistName} onChange={handleNameChange} />
       <TrackList tracks={playlistTracks} onRemove={onRemove} isRemoval={true} isSmall={true} />
-      <button className='Playlist-save' onClick={onSave}>
-        <PlaylistAddIcon />
-        SAVE TO SPOTIFY
-      </button>
+      <DefaultButton
+        testID='save.button'
+        onPress={onSave}
+        containerStyle={{ width: '10rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        text={'SAVE TO SPOTIFY'}
+      />
+      {/* <PlaylistAddIcon />
+        SAVE TO SPOTIFY */}
     </div>
   )
 }

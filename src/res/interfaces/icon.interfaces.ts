@@ -6,6 +6,7 @@ export interface SvgIconProps {
   height?: number
   direction?: string
   scale?: number
+  selected?: boolean
 }
 
 export interface SvgIconsProps extends SvgIconProps {

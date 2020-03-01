@@ -1,8 +1,8 @@
-import { ParaxisTheme } from '../../../hooks'
+import { Theme } from 'hooks'
 
 export const getBackgroundColor = (
   { containerStyle, disabled, disabledBackgroundColor, error }: DefaultButtonProps,
-  theme: ParaxisTheme,
+  theme: Theme,
 ) => {
   let backgroundColor = theme.colors.defaultButton
   if (containerStyle && containerStyle.backgroundColor) {
@@ -18,10 +18,7 @@ export const getBackgroundColor = (
   return backgroundColor
 }
 
-export const getTextColor = (
-  { textStyle, disabled, disabledTextColor, error }: DefaultButtonProps,
-  theme: ParaxisTheme,
-) => {
+export const getTextColor = ({ textStyle, disabled, disabledTextColor, error }: DefaultButtonProps, theme: Theme) => {
   let color = theme.colors.defaultColor
   if (textStyle && textStyle.color) {
     color = textStyle.color

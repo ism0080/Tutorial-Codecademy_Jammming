@@ -9,4 +9,4 @@ export const standardTheme = {
   defaultFontSize: 14,
 }
 
-export type ParaxisTheme = typeof standardTheme
+export type Theme = typeof standardTheme

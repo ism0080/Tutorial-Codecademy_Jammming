@@ -1,10 +1,10 @@
 import { debounce as debounceHandler } from 'lodash'
 import React, { useMemo } from 'react'
 
-import { useParaxisTheme } from 'hooks'
+import { useTheme } from 'hooks'
 import { StaticSvgIcon } from 'res/svg-icon-renderer'
 
-import './DefaultButton.css'
+import styles from './DefaultButton.module.css'
 import { getBackgroundColor, getTextColor } from './functions'
 
 export const DefaultButton = ({
@@ -24,10 +24,10 @@ export const DefaultButton = ({
   disabledBackgroundColor,
   disabledTextColor,
 }: DefaultButtonProps) => {
-  const theme = useParaxisTheme()
+  const theme = useTheme()
   const onPressDebounced = useMemo(() => debounceHandler(onPress, debounce ? debounce : 0), [onPress])
 
-  const styles = {
+  const style = {
     container: {
       backgroundColor: getBackgroundColor(
         {
@@ -60,14 +60,14 @@ export const DefaultButton = ({
   const buttonLabel = error && errorText ? errorText : text
 
   return (
-    <button data-testid={testID} onClick={onButtonPress} className={'container'} style={styles.container}>
+    <button data-testid={testID} onClick={onButtonPress} className={styles.container} style={style.container}>
       {loading ? (
         <span data-testid={`${testID}.loading`}>
           <StaticSvgIcon name='loadingOval' />
         </span>
       ) : (
         children || (
-          <div data-testid={`${testID}.text`} style={styles.text} className={'text'}>
+          <div data-testid={`${testID}.text`} style={style.text} className={styles.text}>
             {buttonLabel}
           </div>
         )

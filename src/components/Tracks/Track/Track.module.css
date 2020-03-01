@@ -8,7 +8,7 @@
   border-radius: 15px;
 }
 
-.Track-action {
+.TrackAction {
   cursor: pointer;
   padding: 0.5rem;
   font-size: 1.05rem;
@@ -19,15 +19,15 @@
   user-select: none;
 }
 
-.Track-action:focus {
+.TrackAction:focus {
   outline: none;
 }
 
-.Track-action:hover {
+.TrackAction:hover {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.Track-information {
+.TrackInformation {
   flex-grow: 1;
   display: flex;
   flex-direction: row;
@@ -37,7 +37,7 @@
   border-radius: 15px;
 }
 
-.Track-information h4 {
+.TrackInformation h4 {
   margin: 0px;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -45,7 +45,7 @@
   font-size: 15px;
 }
 
-.Track-information p {
+.TrackInformation p {
   font-size: 12px;
   font-weight: 300;
   color: rgba(0, 0, 0, 0.8);
@@ -55,7 +55,7 @@
   margin: 0px;
 }
 
-.Track-information img {
+.TrackInformation img {
   width: 120px;
   height: 120px;
   object-fit: cover;

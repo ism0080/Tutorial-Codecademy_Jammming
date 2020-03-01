@@ -1,3 +1,3 @@
-import { ParaxisTheme, standardTheme } from './theme-data/standard-theme'
+import { Theme, standardTheme } from './theme-data/standard-theme'
 
-export const useParaxisTheme = (): ParaxisTheme => standardTheme
+export const useTheme = (): Theme => standardTheme

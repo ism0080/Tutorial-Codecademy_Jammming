@@ -8,7 +8,7 @@ import SearchIcon from '@material-ui/icons/Search'
 import clsx from 'clsx'
 import React, { useState } from 'react'
 
-import './SearchBar.css'
+// import styles from './SearchBar.module.css'
 
 const useStyles = makeStyles((theme) => ({
   margin: {

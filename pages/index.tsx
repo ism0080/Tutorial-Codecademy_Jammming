@@ -1,13 +1,9 @@
 import { navigate } from '@reach/router'
-import React, { useState } from 'react'
-import { render } from 'react-dom'
+import React, { useEffect, useState } from 'react'
 
-import { DefaultButton } from './components/Button'
-import { Routes } from './util/Navigation'
-import Spotify from './util/Spotify/Spotify'
-import SpotifyNew from './util/Spotify/SpotifyNew'
-
-import './index.css'
+import { DefaultButton } from '../src/components/Button'
+import { Routes } from '../src/util/Navigation'
+import Spotify from '../src/util/Spotify/Spotify'
 
 const authEndpoint = 'https://accounts.spotify.com/authorize'
 const clientId = 'b14de9fe7da744dba3bd803d7e62881f'
@@ -15,28 +11,33 @@ const redirectUri = 'http://localhost:3000/'
 const scopes = ['playlist-modify-public']
 
 // Get the hash of the url
-const hash = window.location.hash
-  .substring(1)
-  .split('&')
-  .reduce((initial: any, item) => {
-    if (item) {
-      const parts = item.split('=')
-      initial[parts[0]] = decodeURIComponent(parts[1])
-    }
-    return initial
-  }, {})
-window.location.hash = ''
+let hash: any
+let aToken: any
 
 const App = () => {
+  useEffect(() => {
+    hash = window.location.hash
+      .substring(1)
+      .split('&')
+      .reduce((initial: any, item) => {
+        if (item) {
+          const parts = item.split('=')
+          initial[parts[0]] = decodeURIComponent(parts[1])
+        }
+        return initial
+      }, {})
+    window.location.hash = ''
+  }, [])
   const [token, setToken] = useState<string>()
 
-  const aToken = hash.access_token
+  if (hash) {
+    aToken = hash.access_token
+  }
 
   if (aToken && !token) {
     setToken(aToken)
   }
   Spotify.setAccessToken(token)
-  SpotifyNew.setAccessToken(token)
 
   const onClickHandler = () => {
     navigate(
@@ -63,4 +64,4 @@ const App = () => {
   )
 }
 
-render(<App />, document.getElementById('root'))
+export default App

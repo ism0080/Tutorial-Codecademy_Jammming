@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 import { Bar, Playlist, SearchBar, SearchResults, SideDrawer } from 'components'
 import Spotify from 'util/Spotify/Spotify'
-import SpotifyNew from 'util/Spotify/SpotifyNew'
 
 // import './Home.css'
 
@@ -50,10 +49,6 @@ export const HomeScene = () => {
     })
   }
 
-  const testClick = () => {
-    return SpotifyNew.getUsersPlaylists()
-  }
-
   const sideDrawerHandler = () => {
     setSideDrawer(!sideDrawer)
   }
@@ -62,7 +57,6 @@ export const HomeScene = () => {
     <>
       <Bar drawerClick={sideDrawerHandler} />
       <div className='App'>
-        <button onClick={testClick}></button>
         <SearchBar onSearch={search} />
         <div className='App-playlist'>
           <SearchResults searchResults={searchResults} onAdd={addTrack} />

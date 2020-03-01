@@ -8,14 +8,6 @@ export interface SvgIconProps {
   scale?: number
 }
 
-export interface SvgIconsProps {
+export interface SvgIconsProps extends SvgIconProps {
   name: svgIconsName
-  includePadding?: boolean
-  selected?: boolean
-  isUnstyled?: boolean
-  accessibilityIgnoresInvertColors?: boolean
-  fill?: string
-  width?: number
-  height?: number
-  direction?: string
 }

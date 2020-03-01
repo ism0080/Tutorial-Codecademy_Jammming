@@ -1,7 +1,8 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
     "noImplicitThis": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "baseUrl": "src",
     "outDir": "dist",
     "target": "es5",
@@ -19,25 +20,19 @@
     "noUnusedLocals": true,
     "pretty": true,
     "declaration": true,
-    "plugins": [
-      {
-        "name": "typescript-tslint-plugin",
-        "configFile": "./tslint.json"
-      }
-    ],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "isolatedModules": false,
+    "isolatedModules": true,
     "noEmit": true,
-    "typeRoots": ["node_modules/@types", "src/**/*.interface.ts"]
+    "typeRoots": ["node_modules/@types"]
   },
-  "exclude": ["node_modules"],
-  "compileOnSave": true,
   "include": ["./src/**/*", "**/*", "./**/*.d.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
   "paths": {
-    "components": ["./src/components"],
-    "util": ["./src/util"]
+    "components": "./src/components",
+    "scenes": "./src/scenes",
+    "hooks": "./src/hooks"
   },
   "awesomeTypescriptLoaderOptions": {
     "reportFiles": ["./src/**/*"]

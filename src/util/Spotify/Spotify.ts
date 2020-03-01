@@ -1,22 +1,24 @@
-let accessToken: string
+import axios, { AxiosInstance } from 'axios'
+
+let instance: AxiosInstance
 
 const Spotify = {
   setAccessToken(token: any) {
-    accessToken = token
+    instance = axios.create({
+      baseURL: 'https://api.spotify.com/v1/',
+      headers: { Authorization: `Bearer ${token}` },
+    })
   },
 
   async search(term: string) {
-    const headers = { Authorization: `Bearer ${accessToken}` }
-    // Search for Song
-    const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
-      headers,
-    })
-    const jsonResponse: SpotifyApi.SearchResponse = await response.json()
-    if (!jsonResponse.tracks) {
+    const res = await instance.get(`search?type=track&q=${term}`)
+    const { tracks } = res.data as SpotifyApi.SearchResponse
+
+    if (!tracks) {
       return []
     }
-    // Return song JSON
-    return jsonResponse.tracks.items.map((track) => ({
+
+    return tracks?.items.map((track: any) => ({
       album: track.album.name,
       artist: track.artists[0].name,
       id: track.id,
@@ -31,55 +33,34 @@ const Spotify = {
       return
     }
 
-    const headers = { Authorization: `Bearer ${accessToken}` }
-    let userId: string
+    const res1 = await instance.get('me')
+    const { id: userId } = res1.data as SpotifyApi.CurrentUsersProfileResponse
+    console.log('id', userId)
 
-    // Get UserID
-    const response = await fetch('https://api.spotify.com/v1/me', {
-      headers,
+    const res2 = await instance.post(`users/${userId}/playlists`, {
+      name,
     })
-    const jsonResponse: SpotifyApi.CurrentUsersProfileResponse = await response.json()
-    userId = jsonResponse.id
+    const { id: playlistId } = res2.data
+    console.log('playlist id', playlistId)
 
-    // Get User PLaylists
-    const response1 = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
-      body: JSON.stringify({ name }),
-      headers,
-      method: 'POST',
+    const res3 = await instance.post(`users/${userId}/playlists/${playlistId}/tracks`, {
+      uris: trackUris,
     })
-    const jsonResponse1 = await response1.json()
-    const playlistId = jsonResponse1.id
-
-    // Save User Playlist
-    const response2 = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
-      body: JSON.stringify({ uris: trackUris }),
-      headers,
-      method: 'POST',
-    })
-    return response2
+    return res3
   },
 
   async getUserPlaylists() {
-    const headers = { Authorization: `Bearer ${accessToken}` }
-    let userId
+    const userId = await instance.get('me')
+    const { id } = userId.data as SpotifyApi.CurrentUsersProfileResponse
 
-    // Get User Id
-    const response = await fetch('https://api.spotify.com/v1/me', {
-      headers,
-    })
-    const jsonResponse: SpotifyApi.CurrentUsersProfileResponse = await response.json()
-    userId = jsonResponse.id
-    // Get User Playlists
-    const response1 = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
-      headers,
-      method: 'GET',
-    })
-    const jsonResponse1: SpotifyApi.ListOfUsersPlaylistsResponse = await response1.json()
-    if (!jsonResponse1.items) {
+    const res = await instance.get(`users/${id}/playlists`)
+    const { items } = res.data as SpotifyApi.ListOfUsersPlaylistsResponse
+
+    if (!items) {
       return []
     }
-    // Return User Playlists
-    return jsonResponse1.items.map((item) => ({
+
+    return items.map((item) => ({
       id: item.id,
       image: item.images[0].url,
       name: item.name,
@@ -88,17 +69,12 @@ const Spotify = {
   },
 
   async getUserInformation() {
-    const headers = { Authorization: `Bearer ${accessToken}` }
+    const res = await instance.get('me')
+    const { images, display_name } = res.data as SpotifyApi.CurrentUsersProfileResponse
 
-    // Get user Info
-    const response = await fetch('https://api.spotify.com/v1/me', {
-      headers,
-    })
-    const jsonResponse: SpotifyApi.CurrentUsersProfileResponse = await response.json()
-    // Return user info
     return {
-      avatar: jsonResponse.images && jsonResponse.images[0].url,
-      name: jsonResponse.display_name,
+      avatar: images && images[0].url,
+      name: display_name,
     }
   },
 }
@@ -111,5 +87,4 @@ export default Spotify
     - View songs in playlists
     - Edit songs in playlists
     - Song player
-    - Webpack
 */

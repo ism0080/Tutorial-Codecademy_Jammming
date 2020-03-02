@@ -49,7 +49,7 @@ export const Bar = ({ drawerClick }: BarProps) => {
             Jammming
           </Typography>
           <div className={classes.grow} />
-          <div className={css.useData}>
+          <div className={css.userData}>
             {!userData ? null : (
               <>
                 <img src={userData.avatar} alt='user avatar' />

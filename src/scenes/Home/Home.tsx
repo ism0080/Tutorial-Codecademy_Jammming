@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Bar, Playlist, SearchBar, SearchResults, SideDrawer } from 'components'
 import Spotify from 'util/Spotify/Spotify'
 
-// import './Home.css'
+import css from './Home.less'
 
 export const HomeScene = () => {
   const [searchResults, setSearchResults] = useState([])
@@ -56,9 +56,9 @@ export const HomeScene = () => {
   return (
     <>
       <Bar drawerClick={sideDrawerHandler} />
-      <div className='App'>
+      <div className={css.App}>
         <SearchBar onSearch={search} />
-        <div className='App-playlist'>
+        <div className={css.AppPlaylist}>
           <SearchResults searchResults={searchResults} onAdd={addTrack} />
           <Playlist
             playlistName={playlistName}

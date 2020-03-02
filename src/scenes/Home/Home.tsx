@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Bar, Playlist, SearchBar, SearchResults, SideDrawer } from 'components'
+import { Nav, Playlist, SearchBar, SearchResults } from 'components'
 import Spotify from 'util/Spotify/Spotify'
 
 import css from './Home.less'
@@ -10,7 +10,6 @@ export const HomeScene = () => {
   const [playlistName, setPlaylistName] = useState<string>('(New Playlist)')
   const [playlistTracks, setPlaylistTracks] = useState<TrackSearch[]>([])
   // const [setUserPlaylists] = useState<[]>([])
-  const [sideDrawer, setSideDrawer] = useState<boolean>(false)
 
   const addTrack = (track: TrackSearch) => {
     const tracks: TrackSearch[] = [...playlistTracks]
@@ -49,13 +48,9 @@ export const HomeScene = () => {
     })
   }
 
-  const sideDrawerHandler = () => {
-    setSideDrawer(!sideDrawer)
-  }
-
   return (
     <>
-      <Bar drawerClick={sideDrawerHandler} />
+      <Nav />
       <div className={css.App}>
         <SearchBar onSearch={search} />
         <div className={css.AppPlaylist}>
@@ -67,7 +62,6 @@ export const HomeScene = () => {
             onNameChange={updatePlaylistName}
             onSave={savePlaylist}
           />
-          {sideDrawer ? <SideDrawer drawerClick={sideDrawerHandler} /> : null}
         </div>
       </div>
     </>

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
-import { Bar, SideDrawer, UserPlayList } from 'components'
+import { Nav, UserPlayList } from 'components'
 import Spotify from 'util/Spotify/Spotify'
 
 export const UserPlayListScene = () => {
-  const [sideDrawer, setSideDrawer] = useState<boolean>(false)
   const [userPlaylists, setUserPlaylists] = useState([])
 
   useEffect(() => {
@@ -14,15 +13,10 @@ export const UserPlayListScene = () => {
     setUserPlaylists([])
   }, [])
 
-  const sideDrawerHandler = () => {
-    setSideDrawer(!sideDrawer)
-  }
-
   return (
     <>
-      <Bar drawerClick={sideDrawerHandler} />
+      <Nav />
       <UserPlayList playlists={userPlaylists} />
-      {sideDrawer ? <SideDrawer drawerClick={sideDrawerHandler} /> : null}
     </>
   )
 }

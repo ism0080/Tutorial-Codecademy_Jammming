@@ -1,3 +1,0 @@
-interface SideDrawProps {
-  drawerClick: () => void
-}

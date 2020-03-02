@@ -1,4 +1,4 @@
 export const NavigationConstants = {
   home: '',
-  playlist: 'myPlaylist',
+  playlist: 'playlist',
 }

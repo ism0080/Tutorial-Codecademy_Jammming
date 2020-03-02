@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './Track.module.css'
+import css from './Track.less'
 
 export const Track = ({ isRemoval, track, onAdd, onRemove, isSmall }: TrackProps) => {
   const { name, artist, album, image } = track
@@ -8,13 +8,13 @@ export const Track = ({ isRemoval, track, onAdd, onRemove, isSmall }: TrackProps
   const renderAction = () => {
     if (isRemoval) {
       return (
-        <button className={styles.TrackAction} onClick={removeTrack}>
+        <button className={css.TrackAction} onClick={removeTrack}>
           -
         </button>
       )
     } else {
       return (
-        <button className={styles.TrackAction} onClick={addTrack}>
+        <button className={css.TrackAction} onClick={addTrack}>
           +
         </button>
       )
@@ -34,8 +34,8 @@ export const Track = ({ isRemoval, track, onAdd, onRemove, isSmall }: TrackProps
   }
 
   return (
-    <div className={styles.Track}>
-      <div className={styles.TrackInformation} style={{ height: isSmall ? '4em' : '6em' }}>
+    <div className={css.Track}>
+      <div className={css.TrackInformation} style={{ height: isSmall ? '4em' : '6em' }}>
         <div>
           <img src={image} alt='album art' />
         </div>

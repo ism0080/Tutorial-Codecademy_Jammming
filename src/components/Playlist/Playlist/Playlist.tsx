@@ -2,7 +2,7 @@
 import React from 'react'
 
 import { DefaultButton, TrackList } from 'components'
-import styles from './Playlist.module.css'
+import css from './Playlist.less'
 
 export const Playlist = ({ onNameChange, playlistName, playlistTracks, onRemove, onSave }: PlaylistProps) => {
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -10,7 +10,7 @@ export const Playlist = ({ onNameChange, playlistName, playlistTracks, onRemove,
   }
 
   return (
-    <div className={styles.Playlist}>
+    <div className={css.Playlist}>
       <input defaultValue={playlistName} onChange={handleNameChange} />
       <TrackList tracks={playlistTracks} onRemove={onRemove} isRemoval={true} isSmall={true} />
       <DefaultButton

@@ -11,6 +11,8 @@ const clientId = process.env.CLIENT_ID
 const redirectUri = process.env.URI
 const scopes = ['playlist-modify-public']
 
+import css from './styles.less'
+
 // Get the hash of the url
 let hash: any
 let aToken: any
@@ -43,12 +45,17 @@ const App = () => {
       `${authEndpoint}?client_id=${clientId}&response_type=token&${scopes.join('%20')}&redirect_uri=${redirectUri}`,
     )
   }
+  console.log(token)
 
   return (
     <>
       {!token ? (
-        <div className='AppLogin'>
-          <img className='logoImg' src='https://miro.medium.com/max/2400/1*BKoo1Q5PBuN87XT4bArK3w.jpeg' alt='logo' />
+        <div className={css.AppLogin}>
+          <img
+            className={css.logoImg}
+            src='https://miro.medium.com/max/2400/1*BKoo1Q5PBuN87XT4bArK3w.jpeg'
+            alt='logo'
+          />
           <DefaultButton
             testID='login-button'
             text='Login to Spotify'

@@ -7,7 +7,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import React, { useEffect, useState } from 'react'
 
 import Spotify from 'util/Spotify/Spotify'
-import styles from './Bar.module.css'
+import css from './Bar.less'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -46,10 +46,10 @@ export const Bar = ({ drawerClick }: BarProps) => {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap>
-            Paraxis
+            Jammming
           </Typography>
           <div className={classes.grow} />
-          <div className={styles.useData}>
+          <div className={css.useData}>
             {!userData ? null : (
               <>
                 <img src={userData.avatar} alt='user avatar' />

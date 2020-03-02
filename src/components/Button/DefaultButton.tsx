@@ -4,7 +4,7 @@ import React, { useMemo } from 'react'
 import { useTheme } from 'hooks'
 import { StaticSvgIcon } from 'res/svg-icon-renderer'
 
-import styles from './DefaultButton.module.css'
+import css from './DefaultButton.less'
 import { getBackgroundColor, getTextColor } from './functions'
 
 export const DefaultButton = ({
@@ -60,14 +60,14 @@ export const DefaultButton = ({
   const buttonLabel = error && errorText ? errorText : text
 
   return (
-    <button data-testid={testID} onClick={onButtonPress} className={styles.container} style={style.container}>
+    <button data-testid={testID} onClick={onButtonPress} className={css.container} style={style.container}>
       {loading ? (
         <span data-testid={`${testID}.loading`}>
           <StaticSvgIcon name='loadingOval' />
         </span>
       ) : (
         children || (
-          <div data-testid={`${testID}.text`} style={style.text} className={styles.text}>
+          <div data-testid={`${testID}.text`} style={style.text} className={css.text}>
             {buttonLabel}
           </div>
         )

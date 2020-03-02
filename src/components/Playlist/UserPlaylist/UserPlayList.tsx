@@ -1,9 +1,9 @@
 import React from 'react'
 
-import styles from './UserPlayList.module.css'
+import css from './UserPlayList.less'
 
 export const UserPlayList = ({ playlists }: UserPlayListProps) => (
-  <div className={styles.UserPlayList}>
+  <div className={css.UserPlayList}>
     <h2>Your Playlists</h2>
     {playlists.map((playlist) => {
       return (

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 import Spotify from 'util/Spotify/Spotify'
 
@@ -18,7 +19,15 @@ export const Nav = () => {
   }
 
   return (
-    <div style={{ backgroundColor: 'blue', height: 70, display: 'flex', alignItems: 'center' }}>
+    <div className={css.navWrapper}>
+      <div className={css.navLinks}>
+        <Link href='/app'>
+          <a>Home</a>
+        </Link>
+        <Link href='/playlist'>
+          <a>Playlist</a>
+        </Link>
+      </div>
       <div className={css.userData}>
         {userData && (
           <>

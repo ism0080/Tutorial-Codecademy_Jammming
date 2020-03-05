@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Nav, UserPlayList } from 'components'
 import Spotify from 'util/Spotify/Spotify'
 
-export const UserPlayListScene = () => {
+const UserPlayListScene = () => {
   const [userPlaylists, setUserPlaylists] = useState([])
 
   useEffect(() => {
@@ -20,3 +20,5 @@ export const UserPlayListScene = () => {
     </>
   )
 }
+
+export default UserPlayListScene

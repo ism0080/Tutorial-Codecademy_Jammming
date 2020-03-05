@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import dynamic from 'next/dynamic'
 
 import { DefaultButton } from 'components/Button'
-import { Routes } from 'util/Navigation'
 import Spotify from 'util/Spotify/Spotify'
+import HomeScene from './app/index'
 
 const authEndpoint = 'https://accounts.spotify.com/authorize'
 const clientId = process.env.CLIENT_ID
@@ -64,7 +64,7 @@ const App = () => {
           />
         </div>
       ) : (
-        <Routes />
+        <HomeScene />
       )}
     </>
   )

@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import { Nav, Playlist, SearchBar, SearchResults } from 'components'
 import Spotify from 'util/Spotify/Spotify'
 
-import css from './Home.less'
+import css from './index.less'
 
-export const HomeScene = () => {
+const HomeScene = () => {
   const [searchResults, setSearchResults] = useState([])
   const [playlistName, setPlaylistName] = useState<string>('(New Playlist)')
   const [playlistTracks, setPlaylistTracks] = useState<TrackSearch[]>([])
@@ -67,3 +67,5 @@ export const HomeScene = () => {
     </>
   )
 }
+
+export default HomeScene

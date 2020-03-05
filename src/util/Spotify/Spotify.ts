@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import axios, { AxiosInstance } from 'axios'
 
 let instance: AxiosInstance
@@ -35,13 +36,11 @@ const Spotify = {
 
     const res1 = await instance.get('me')
     const { id: userId } = res1.data as SpotifyApi.CurrentUsersProfileResponse
-    console.log('id', userId)
 
     const res2 = await instance.post(`users/${userId}/playlists`, {
       name,
     })
     const { id: playlistId } = res2.data
-    console.log('playlist id', playlistId)
 
     const res3 = await instance.post(`users/${userId}/playlists/${playlistId}/tracks`, {
       uris: trackUris,
